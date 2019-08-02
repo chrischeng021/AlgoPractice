@@ -1,8 +1,8 @@
-import Array.ContainerMostWater;
+import String.Funcs;
 
 public class Solution {
     public static void main(String [] args){
-        int[] input = {1,8,6,2,5,4,8,3,7};
-        System.out.println(ContainerMostWater.maxArea(input));
+        Funcs funcs = new Funcs();
+        System.out.println(funcs.firstUniqChar("leetcode"));
     }
 }
