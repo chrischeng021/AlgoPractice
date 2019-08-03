@@ -1,4 +1,4 @@
-package ByteDance;
+package StringAlgo;
 
 public class StringArrangement {
     public boolean checkInclusion(String s1, String s2) {
@@ -17,7 +17,7 @@ public class StringArrangement {
     }
 
     private boolean isContains(String source, String target){
-        int []arr  = new int[26];
+            int []arr  = new int[26];
         if(target.length() < source.length())
             return false;
         for(int i = 0; i < source.length(); i++)

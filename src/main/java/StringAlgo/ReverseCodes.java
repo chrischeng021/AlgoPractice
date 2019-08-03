@@ -1,4 +1,4 @@
-package ByteDance;
+package StringAlgo;
 
 public class ReverseCodes {
     // 使用了原地交换的解法，空间复杂度O(1)
