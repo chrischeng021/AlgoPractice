@@ -1,4 +1,4 @@
-package Array;
+package ArrayAlogo;
 
 public class MyCircularQueue {
     private int[] _data;

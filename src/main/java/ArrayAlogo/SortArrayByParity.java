@@ -1,4 +1,4 @@
-package Array;
+package ArrayAlogo;
 
 public class SortArrayByParity {
     public int[] sortArrayByParity(int[] A) {

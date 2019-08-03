@@ -1,4 +1,4 @@
-package Array;
+package ArrayAlogo;
 
 public class ContainerMostWater {
     public static int maxArea(int[] height) {

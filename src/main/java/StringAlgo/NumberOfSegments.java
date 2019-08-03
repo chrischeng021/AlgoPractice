@@ -1,4 +1,4 @@
-package String;
+package StringAlgo;
 
 // This question is really fucking stupid.
 

@@ -1,4 +1,4 @@
-package Array;
+package ArrayAlogo;
 
 public class FibonacciNumber {
     public int fib(int N) {

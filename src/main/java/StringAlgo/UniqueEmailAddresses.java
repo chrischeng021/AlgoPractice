@@ -1,4 +1,4 @@
-package String;
+package StringAlgo;
 
 import java.util.HashSet;
 import java.util.Set;

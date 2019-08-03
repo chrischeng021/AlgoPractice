@@ -1,4 +1,4 @@
-package String;
+package StringAlgo;
 
 public class IsPalindrome {
     public boolean isPalindrome(String s) {

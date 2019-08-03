@@ -1,4 +1,4 @@
-package Array;
+package ArrayAlogo;
 
 public class SuperEggDrop {
     public int superEggDrop(int K, int N) {
