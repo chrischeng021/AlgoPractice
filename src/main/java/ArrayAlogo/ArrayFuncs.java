@@ -65,4 +65,52 @@ public class ArrayFuncs {
         }
         return res;
     }
+
+    public int fixedPoint(int[] A) {
+        for(int i = 0; i < A.length; i++){
+            if(A[i] == i)
+                return i;
+        }
+        return -1;
+    }
+
+    public static int sumOfDigits(int[] A) {
+        int min = Integer.MAX_VALUE;
+        for(int num : A){
+            if(min > num)
+                min = num;
+        }
+        int sum = 0;
+        while(min > 0){
+            sum += min%10;
+            min /= 10;
+        }
+        return sum % 2 == 0 ? 0 : 1;
+    }
+
+    public static int maxSubArray(int[] nums) {
+        int resMaxSum = nums[0];
+        int curMaxSum = 0;
+        for(int num : nums){
+            if(curMaxSum > 0)
+                curMaxSum += num;
+            else
+                curMaxSum = num;
+            resMaxSum = Math.max(resMaxSum, curMaxSum);
+        }
+        return resMaxSum;
+    }
+
+//    public static List<List<Integer>> threeSum(int[] nums) {
+//        List sortedNums =  Arrays.asList(nums);
+//        Collections.sort(sortedNums);
+//        List<List<Integer>> res = new ArrayList<>();
+//
+//        for(int i = 0; i < sortedNums.size(); i++){
+//            int curNum = (int)sortedNums.get(i);
+//            for(int j = i + 1; j < sortedNums.size(); j++){
+//
+//            }
+//        }
+//    }
 }
