@@ -1,6 +1,7 @@
 package StringAlgo;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class StringFuncs {
@@ -99,4 +100,12 @@ public class StringFuncs {
             }
         }
     }
+
+//    public static List<Integer> findAnagrams(String s, String p) {
+//        int[] targetAlphaSummary = new int[26];
+//        int targetLength = p.length();
+//        for(int i = 0; i < p.length(); i++){
+//            targetAlphaSummary[p.charAt(i) - 'a']++;
+//        }
+//    }
 }

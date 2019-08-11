@@ -6,49 +6,40 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SimpleThreadTest implements Runnable{
-    private int _tag;
-    private AtomicInteger curNum;
-    private AtomicInteger curCount;
+    private static volatile int curNum;
+    private static volatile int curCount;
+    private volatile int threadNum;
     private final Lock lock = new ReentrantLock();
     private final Condition condition = lock.newCondition();
 
-    public SimpleThreadTest(int val){
-        this._tag = val;
-        curNum = new AtomicInteger(Integer.MIN_VALUE);
-        curCount = new AtomicInteger(0);
+    public SimpleThreadTest(int threadNum){
+        curNum = 0;
+        curCount = 0;
+        this.threadNum = threadNum;
     }
 
     public void run(){
         try{
+            lock.lock();
             for(int i = 0; i < 10; i++) {
-                curNum.compareAndSet(Integer.MIN_VALUE, i);
-
-                while(curNum.get() != i && curCount.get() !=10)
+                while((curNum != i && curCount != 10))
                     condition.await();
 
-                if(curCount.get() == 10){
-                    condition.signalAll();
-                    lock.unlock();
+                if(curCount == 10){
+                    curCount = 1;
+                    curNum = i;
                 }
 
-                if(i == curNum.get()){
-                    System.out.println(String.valueOf(_tag) + "_" + i);
-                    curCount.incrementAndGet();
-                    condition.signalAll();
-                }
-
-                if(i != curNum.get() && curCount.get() == 10){
-                    System.out.println(String.valueOf(_tag) + "_" + i);
-                    curCount.compareAndSet(10, 1);
-                    curNum.set(i);
-                    condition.signalAll();
-                }
+                System.out.println(this.hashCode() + "__" + i);
+                curCount++;
+                condition.signalAll();
             }
         }
         catch(InterruptedException e){
             System.out.println(e.toString());
         }
         finally{
+            lock.unlock();
         }
     }
 }
